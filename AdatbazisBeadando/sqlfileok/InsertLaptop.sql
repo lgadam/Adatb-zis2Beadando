@@ -12,7 +12,7 @@ create or replace procedure spInsert_laptopok(
 )
 authid definer
 as
-    v_check_rendszam int;
+    v_check_sorozatszam int;
     v_gyarto_id int;
 begin
     p_out_rowcnt := 0;
@@ -23,13 +23,13 @@ begin
         v_gyarto_id := sf_getGyartoId(p_gyarto);
     end if;
     --Ellenőrzöm a rendszám helyességét
-    v_check_rendszam := sf_check_rendszam(p_rendszam);
-    if v_check_rendszam = 1 then
-        insert into autok
-            (rendszam, alvazszam, gyarto_id, tipus, uzemanyag, evjarat, gyorsulas, meghajtas)
+    v_check_sorozatszam := sf_check_sorozatszam(p_sorozatszam);
+    if v_check_sorozatszam = 1 then
+        insert into laptopok
+            (id, sorozatszam, tipus, gyarto, processzor, videokartya, ram, kepernyomeret,processzororajel)
         values
-            (p_rendszam, p_alvazszam, v_gyarto_id, p_tipus, p_uzemanyag, p_evjarat, p_gyorsulas, p_meghajtas);
+            (p_id, p_sorozatszam,p_tipus,v_gyarto_id,p_processzor,p_videokartya,p_ram,p_kepernyomeret,p_processzororajel);
         p_out_rowcnt := SQL%rowcount;
         commit;
     end if;
-end spInsert_autok;
+end spInsert_laptopok;

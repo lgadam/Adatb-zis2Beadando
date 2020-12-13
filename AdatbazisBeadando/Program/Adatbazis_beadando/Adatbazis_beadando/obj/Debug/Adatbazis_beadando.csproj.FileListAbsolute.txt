@@ -1,0 +1,11 @@
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\bin\Debug\Adatbazis_beadando.exe.config
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\bin\Debug\Adatbazis_beadando.exe
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\bin\Debug\Adatbazis_beadando.pdb
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\obj\Debug\Adatbazis_beadando.csprojAssemblyReference.cache
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\obj\Debug\Adatbazis_beadando.Properties.Resources.resources
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\obj\Debug\Adatbazis_beadando.csproj.GenerateResource.cache
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\obj\Debug\Adatbazis_beadando.csproj.CopyComplete
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\obj\Debug\Adatbazis_beadando.exe
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\obj\Debug\Adatbazis_beadando.pdb
+D:\Adatbazis2Beadando\AdatbazisBeadando\Program\Adatbazis_beadando\Adatbazis_beadando\obj\Debug\Adatbazis_beadando.Form1.resources
