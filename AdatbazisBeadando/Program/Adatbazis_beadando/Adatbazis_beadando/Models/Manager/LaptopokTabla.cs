@@ -14,7 +14,7 @@ namespace Adatbazis_beadando.Models.Manager
         {
             OracleConnection oc = new OracleConnection();
 
-            string connectionString = @"Data Source=193.225.33.71;User Id=ORA_S1340;Password=EKE2020;";
+            string connectionString = @"Data Source=193.225.33.71;User Id=II3VEY;Password=EKE2020;";
             oc.ConnectionString = connectionString;
             return oc;
         }
@@ -22,14 +22,14 @@ namespace Adatbazis_beadando.Models.Manager
         {
             List<Laptopok> records = new List<Laptopok>();
 
-            OracleConnection oc = new OracleConnection();
+            OracleConnection oc = GetOracleConnection();
             oc.Open();
 
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.Text,
-                CommandText = "SELECT gy.nev, l.tipus, l.sorozatszam FROM " +
-                " laptopok l INNER JOIN gyartok gy ON gy.id = a.gyarto_id"
+                CommandText = "SELECT l.sorozatszam, l.tipus, gy.nev FROM " +
+                "laptopok l INNER JOIN gyartok gy ON gy.id = l.gyarto_id"
             };
 
             command.Connection = oc;
@@ -192,22 +192,24 @@ namespace Adatbazis_beadando.Models.Manager
             command.Connection = oc;
             command.Transaction = ot;
 
-            oc.Close();
+            
 
             try
             {
                 command.ExecuteNonQuery();
                 int affectedRows = int.Parse(rowcountParameter.Value.ToString());
                 ot.Commit();
+                oc.Close();
                 return affectedRows;
             }
             catch (Exception)
             {
                 ot.Rollback();
+                oc.Close();
                 return 0;
             }
         }
-        public bool CheckSorszam(string sorszam)
+        public bool CheckSorozatszam(string sorozatszam)
         {
             OracleConnection oc = GetOracleConnection();
             oc.Open();
@@ -215,7 +217,7 @@ namespace Adatbazis_beadando.Models.Manager
             OracleCommand command = new OracleCommand()
             {
                 CommandType = System.Data.CommandType.StoredProcedure,
-                CommandText = "sf_check_sorszam"
+                CommandText = "sf_check_sorozatszam"
             };
 
             OracleParameter correct = new OracleParameter()
@@ -223,18 +225,21 @@ namespace Adatbazis_beadando.Models.Manager
                 DbType = System.Data.DbType.Int32,
                 Direction = System.Data.ParameterDirection.ReturnValue
             };
-
-            OracleParameter sorszamParameter = new OracleParameter()
+            command.Parameters.Add(correct);
+            OracleParameter sorozatszamParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
-                ParameterName = "p_sorszam",
+                ParameterName = "p_sorozatszam",
                 Direction = System.Data.ParameterDirection.Input,
-                Value = sorszam
+                Value = sorozatszam
 
             };
-            command.Parameters.Add(sorszamParameter);
-
+            command.Parameters.Add(sorozatszamParameter);
             command.Connection = oc;
+            command.ExecuteNonQuery();
+            
+            
+
 
             try
             {
