@@ -12,7 +12,7 @@ begin
         return 0;
     end if;
 
-    if length(trim(p_sorozatszam)) > 10 then
+    if length(trim(p_sorozatszam)) < 10 then
         return 0;
     end if;
     while v_i <= length(trim(p_sorozatszam)) loop

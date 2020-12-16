@@ -99,16 +99,6 @@ namespace Adatbazis_beadando.Models.Manager
                 CommandText = "spInsert_laptopok"
             };
 
-            //paraméterek! Hiszen fontos, hogy ne égessük bele a progiba az adatokat, ezért kellenek paraméterek!!!!
-            OracleParameter idParameter = new OracleParameter()
-            {
-                DbType = System.Data.DbType.String,
-                ParameterName = "p_id",
-                Direction = System.Data.ParameterDirection.Input,
-                Value = record.Id
-            };
-            command.Parameters.Add(idParameter);
-
             OracleParameter sorozatszamParameter = new OracleParameter()
             {
                 DbType = System.Data.DbType.String,
@@ -156,7 +146,7 @@ namespace Adatbazis_beadando.Models.Manager
 
             OracleParameter ramParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.String,
+                DbType = System.Data.DbType.Int32,
                 ParameterName = "p_ram",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Ram
@@ -165,7 +155,7 @@ namespace Adatbazis_beadando.Models.Manager
 
             OracleParameter kepernyomeretParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.String,
+                DbType = System.Data.DbType.Int32,
                 ParameterName = "p_kepernyomeret",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Kepernyomeret
@@ -173,13 +163,12 @@ namespace Adatbazis_beadando.Models.Manager
             command.Parameters.Add(kepernyomeretParameter);
             OracleParameter processzororajelParameter = new OracleParameter()
             {
-                DbType = System.Data.DbType.String,
+                DbType = System.Data.DbType.Int32,
                 ParameterName = "p_processzororajel",
                 Direction = System.Data.ParameterDirection.Input,
                 Value = record.Processzororajel
             };
             command.Parameters.Add(processzororajelParameter);
-
 
 
             OracleParameter rowcountParameter = new OracleParameter()
@@ -188,12 +177,10 @@ namespace Adatbazis_beadando.Models.Manager
                 ParameterName = "p_out_rowcnt",
                 Direction = System.Data.ParameterDirection.Output
             };
+            command.Parameters.Add(rowcountParameter);
 
             command.Connection = oc;
             command.Transaction = ot;
-
-            
-
             try
             {
                 command.ExecuteNonQuery();
@@ -237,10 +224,7 @@ namespace Adatbazis_beadando.Models.Manager
             command.Parameters.Add(sorozatszamParameter);
             command.Connection = oc;
             command.ExecuteNonQuery();
-            
-            
-
-
+            oc.Close();
             try
             {
                 int succesful = int.Parse(correct.Value.ToString());

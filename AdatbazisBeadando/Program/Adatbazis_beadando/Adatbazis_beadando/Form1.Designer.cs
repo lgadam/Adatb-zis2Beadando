@@ -162,25 +162,25 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(408, 250);
+            this.label6.Location = new System.Drawing.Point(403, 250);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 14;
-            this.label6.Text = "ram";
+            this.label6.Text = "ram(gb)";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(391, 284);
+            this.label7.Location = new System.Drawing.Point(371, 287);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.Size = new System.Drawing.Size(97, 13);
             this.label7.TabIndex = 15;
-            this.label7.Text = "képernyőméret";
+            this.label7.Text = "képernyőméret(col)";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(385, 322);
+            this.label8.Location = new System.Drawing.Point(371, 322);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 16;
@@ -215,11 +215,11 @@
             // 
             // button_listazas
             // 
-            this.button_listazas.Location = new System.Drawing.Point(598, 356);
+            this.button_listazas.Location = new System.Drawing.Point(681, 250);
             this.button_listazas.Name = "button_listazas";
             this.button_listazas.Size = new System.Drawing.Size(84, 40);
             this.button_listazas.TabIndex = 20;
-            this.button_listazas.Text = "Listázás";
+            this.button_listazas.Text = "Frissítés";
             this.button_listazas.UseVisualStyleBackColor = true;
             this.button_listazas.Click += new System.EventHandler(this.button_listazas_Click);
             // 

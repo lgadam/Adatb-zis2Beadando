@@ -8,13 +8,6 @@ namespace Adatbazis_beadando.Models.Records
 {
     class Laptopok
     {
-        private int id;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
         private string sorozatszam;
 
         public string Sorozatszam
@@ -34,7 +27,14 @@ namespace Adatbazis_beadando.Models.Records
         public string Tipus
         {
             get { return tipus; }
-            set { tipus = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("A típus nem lehet null");
+                }
+                tipus = value;
+            }
         }
         private string gyartonev;
 
@@ -85,24 +85,16 @@ namespace Adatbazis_beadando.Models.Records
             get { return ram; }
             set
             {
-                if (value == null)
-                {
-                    throw new Exception("Nem lehet null a ram");
-                }
                 ram = value;
             }
         }
-        private string kepernyomeret;
+        private int kepernyomeret;
 
-        public string Kepernyomeret
+        public int Kepernyomeret
         {
             get { return kepernyomeret; }
             set
             {
-                if (value == null)
-                {
-                    throw new Exception("Nem lehet null a képernyőméret");
-                }
                 kepernyomeret = value;
             }
         }
@@ -113,10 +105,6 @@ namespace Adatbazis_beadando.Models.Records
             get { return processzororajel; }
             set
             {
-                if (value == null)
-                {
-                    throw new Exception("Nem lehet null a processzororajel");
-                }
                 processzororajel = value;
             }
         }

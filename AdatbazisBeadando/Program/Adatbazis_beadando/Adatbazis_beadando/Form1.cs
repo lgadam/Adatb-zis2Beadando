@@ -19,12 +19,13 @@ namespace Adatbazis_beadando
         BackgroundWorker bgWorker;
         public Form1()
         {
-            InitializeComponent();
+            
             tablaManager = new LaptopokTabla();
             rekords_LaptopokList = new List<Laptopok>();
             bgWorker = new BackgroundWorker();
             bgWorker.DoWork += BgWorker_DoWork;
             bgWorker.RunWorkerCompleted += BgWorker_RunWorkerComplete;
+            InitializeComponent();
         }
 
         private void button_torles_Click(object sender, EventArgs e)
@@ -46,11 +47,7 @@ namespace Adatbazis_beadando
         }
         private void button_listazas_Click(object sender, EventArgs e)
         {
-            
-            foreach (Laptopok elem in rekords_LaptopokList)
-            {
-                dgv_laptopok.DataSource = elem;
-            }
+            dgv_laptopok.Refresh();
         }
         private void hozzadas_button_Click(object sender, EventArgs e)
         {
@@ -64,14 +61,14 @@ namespace Adatbazis_beadando
                     Processzor = tb_processzor.Text,
                     Videokartya = tb_videokartya.Text,
                     Ram = int.Parse(tb_ram.Text),
-                    Kepernyomeret = tb_kepernyomeret.Text,
+                    Kepernyomeret = int.Parse(tb_kepernyomeret.Text),
                     Processzororajel = int.Parse(tb_processzororajel.Text)
                 };
                 tablaManager.Insert(laptop);
                 bgWorker.RunWorkerAsync();
 
                 MessageBox.Show("sikeres adatfeltöltés!");
-                dgv_laptopok.Refresh();
+                /*
                 tb_sorozatszam.Clear();
                 tb_tipus.Clear();
                 tb_gyarto.Clear();
@@ -80,6 +77,7 @@ namespace Adatbazis_beadando
                 tb_ram.Clear();
                 tb_processzororajel.Clear();
                 tb_kepernyomeret.Clear();
+                */
             }
             catch (Exception)
             {
