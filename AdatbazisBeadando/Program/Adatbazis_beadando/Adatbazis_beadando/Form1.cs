@@ -68,7 +68,6 @@ namespace Adatbazis_beadando
                 bgWorker.RunWorkerAsync();
 
                 MessageBox.Show("sikeres adatfeltöltés!");
-                /*
                 tb_sorozatszam.Clear();
                 tb_tipus.Clear();
                 tb_gyarto.Clear();
@@ -77,7 +76,6 @@ namespace Adatbazis_beadando
                 tb_ram.Clear();
                 tb_processzororajel.Clear();
                 tb_kepernyomeret.Clear();
-                */
             }
             catch (Exception)
             {
@@ -165,7 +163,8 @@ namespace Adatbazis_beadando
         {
             string actual = tb_sorozatszam.Text;
             bool Correct = tablaManager.CheckSorozatszam(actual);
-            tb_sorozatszam.BackColor = Correct ? Color.White : Color.Yellow;
+            tb_sorozatszam.BackColor = Correct ? Color.White : Color.Purple;
         }
+
     }
 }

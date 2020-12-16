@@ -85,6 +85,10 @@ namespace Adatbazis_beadando.Models.Records
             get { return ram; }
             set
             {
+                if (value < 0 || value > 64)
+                {
+                    throw new Exception("Valós értéket kell megadni..");
+                }
                 ram = value;
             }
         }
@@ -105,6 +109,10 @@ namespace Adatbazis_beadando.Models.Records
             get { return processzororajel; }
             set
             {
+                if (value < 1000 || value > 5000)
+                {
+                    throw new Exception("Valós értéket kell megadni..");
+                }
                 processzororajel = value;
             }
         }
